@@ -5,32 +5,47 @@
  */
 package dialog;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 
 public class Dialog {
 
   
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws FileNotFoundException  {
         
         int t =0 ,d=0 ;
         int a = 7, b = 7;
           System.out.println("Введите своё имя");
           Scanner name = new Scanner(System.in);
           String n = name.nextLine();
-          
           System.out.println("Привет"+" "+n);
           
+List<String> list = new ArrayList<String>();
+Scanner in = new Scanner(new File("C:\\Учеба\\java\\Socionic\\text.txt"));
+while (in.hasNextLine())
+list.add(in.nextLine());
+String[] array = list.toArray(new String[0]);
+
+        
+        
+
+        
          
-      
-          String[][] ask ;
+      System.out.println(list.size());
+        /*  String[][] ask ;
         ask = new String[2][7];
     
-       /* 
-        */
+        
+        
       ask[0][0] = "Вдохновляющие идеи; начиная, теории.";
       ask[0][1] = "Интересные, талантливые люди; общение.";
       ask[0][2] = "Эмоциональное предчувствие; поэтичность."; 
@@ -46,32 +61,32 @@ public class Dialog {
       ask [1][4] ="Радость, эмоции, праздник; хорошее настроение.";
       ask [1][5] ="Драмматизм, трагедия; сопереживание.";
        ask[1][6] ="Вера, надежда, любовь; преданность близким.";
-       
+       */
      
        int i = 0,r = 0;
         int g;
-                 while(ask[0].length>=i){
+                 while(i<=list.size()){
                    
                     
-                    System.out.println(ask[0][i]);
-                    i++;
+                    System.out.println(list.get(i));
+                    
                        
                     g = new Scanner(System.in).nextInt();
                    
-                    
+                    i++;
                     if (g==1)
                        t++;
               }
-                   i = 0;   
+                  /* i = 0;   
                       while(ask[1].length>=i){
                           System.out.println(ask[1][i]);
-                          i++;
+                         
                           g = new Scanner(System.in).nextInt();
-                          
+                           i++;
                           if(g==1)
                               d++;
                           
-                      }
+                      }*/
                  
                  System.out.println("Переменная t равна"+t+" "+"Переменная d равна"+d);     
                        
@@ -91,3 +106,5 @@ public class Dialog {
       }
     
   }
+    
+    
